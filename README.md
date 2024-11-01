@@ -349,7 +349,7 @@ df
 
 When loading a csv file there are some accented characters, special symbols, etc. that may cause an error when reading the the dataset. In this case when the file contains noN-UTF-8 characters the `ISO 8859-1` encoding is used.
 
-[^2]: [https://www.ibm.com/docs/en/configurepricequote/10.0?topic=encoding-set-up-latin-1-character](https://stackoverflow.com/questions/7048745/what-is-the-difference-between-utf-8-and-iso-8859-1)
+[^2]: https://stackoverflow.com/questions/7048745/what-is-the-difference-between-utf-8-and-iso-8859-1
 
 ---
 
