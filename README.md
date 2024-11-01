@@ -338,6 +338,9 @@ df
     <td>5</td>
   </tr>
 </table>
+953 rows × 24 columns
+
+---
 
 > [!Tip]
 > `encoding='ISO-8859-1'` was used because ISO-8859[^2] is a family of single-byte encoding schemes used to represent alphabets that can be represented within the range of 127 to 255. These various alphabets are defined as "parts" in the format ISO-8859-n, the most familiar of these likely being ISO-8859-1 aka 'Latin-1'.
@@ -347,11 +350,16 @@ df
 When loading a csv file there are some accented characters, special symbols, etc. that may cause an error when reading the the dataset. In this case when the file contains noN-UTF-8 characters the `ISO 8859-1` encoding is used.
 
 [^2]: [https://www.ibm.com/docs/en/configurepricequote/10.0?topic=encoding-set-up-latin-1-character](https://stackoverflow.com/questions/7048745/what-is-the-difference-between-utf-8-and-iso-8859-1)
+
+---
+
 ## Overview of Dataset
 1. How many rows and columns does the dataset contain?
 
 
-3. What are the data types of each column? Are there any missing values?
+2. What are the data types of each column? Are there any missing values?
+
+---
 
 ## Basic Descriptive Statistics
 1. What are the mean, median, and standard deviation of the streams column?
@@ -362,29 +370,63 @@ When loading a csv file there are some accented characters, special symbols, etc
 ```
   
 2. What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
-   
+
+
+---
+
 ## Top Performers
 1. Which track has the highest number of streams? Display the top 5 most streamed tracks.
 
 2. Who are the top 5 most frequent artists based on the number of tracks in the dataset?
-   
+
+
+---
+
 ## Temporal Trends
 1. Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
 
 2. Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
-   
+
+
+---
+
 ## Genre and Music Characteristics
 1. Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
 
 2. Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
-   
+
+
+---
+
 ## Platform Popularity
 1. How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+
+
+---
 
 ## Advanced Analysis
 1. Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
 
 2. Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
