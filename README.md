@@ -50,6 +50,7 @@ df
 🌳 Output:
 <table>
   <tr>
+    <th></th>
     <th>track_name</th>
     <th>artist(s)_name</th>
     <th>artist_count</th>
@@ -60,6 +61,7 @@ df
     <th>in_spotify_charts</th>
     <th>streams</th>
     <th>in_apple_playlists</th>
+    <th>...</th>
     <th>bpm</th>
     <th>key</th>
     <th>mode</th>
@@ -72,6 +74,7 @@ df
     <th>speechiness_%</th>
   </tr>
   <tr>
+    <td>0</td>
     <td>Seven (feat. Latto) (Explicit Ver.)</td>
     <td>Latto, Jung Kook	</td>
     <td>2</td>
@@ -82,6 +85,7 @@ df
     <td>147</td>
     <td>141381703	</td>
     <td>43</td>
+    <td>...</td>
     <td>125</td>
     <td>B</td>
     <td>Major</td>
@@ -94,6 +98,7 @@ df
     <td>4</td>
   </tr>
  <tr>
+   <td>1</td>
     <td>LALA</td>
     <td>Myke Towers</td>
     <td>1</td>
@@ -104,6 +109,7 @@ df
     <td>48</td>
     <td>133716286	</td>
     <td>48</td>
+    <td>...</td>
     <td>92</td>
     <td>C#</td>
     <td>Major</td>
@@ -115,205 +121,224 @@ df
     <td>10</td>
     <td>4</td>
   </tr>
-  <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+ <tr>
+    <td>2</td>
+    <td>vampire</td>
+    <td>Olivia Rodrigo</td>
+    <td>1</td>
+    <td>2023</td>
+    <td>6</td>
+    <td>30</td>
+    <td>1397</td>
+    <td>113</td>
+    <td>140003974	</td>
+    <td>94</td>
+    <td>...</td>
+    <td>138</td>
+    <td>F</td>
+    <td>Major</td>
+    <td>51</td>
+    <td>32</td>
+    <td>53</td>
+    <td>17</td>
+    <td>0</td>
+    <td>31</td>
+    <td>6</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>3</td>
+    <td>Cruel Summer</td>
+    <td>Taylor Swift</td>
+    <td>1</td>
+    <td>2019</td>
+    <td>8</td>
+    <td>23</td>
+    <td>7858</td>
+    <td>100</td>
+    <td>800840817	</td>
+    <td>116</td>
+    <td>...</td>
+    <td>170</td>
+    <td>A</td>
+    <td>Major</td>
+    <td>55</td>
+    <td>58</td>
+    <td>72</td>
+    <td>11</td>
+    <td>0</td>
+    <td>11</td>
+    <td>15</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>4</td>
+    <td>WHERE SHE GOES</td>
+    <td>Bad Bunny</td>
+    <td>1</td>
+    <td>2023</td>
+    <td>5</td>
+    <td>18</td>
+    <td>3133</td>
+    <td>50</td>
+    <td>303236322	</td>
+    <td>84</td>
+    <td>...</td>
+    <td>144</td>
+    <td>A</td>
+    <td>Minor</td>
+    <td>65</td>
+    <td>23</td>
+    <td>80</td>
+    <td>14</td>
+    <td>63</td>
+    <td>11</td>
+    <td>6</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
+    <td>...</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>948</td>
+    <td>My Mind & Me</td>
+    <td>Selena Gomez</td>
+    <td>1</td>
+    <td>2022</td>
+    <td>11</td>
+    <td>3</td>
+    <td>953</td>
+    <td>0</td>
+    <td>91473363	</td>
+    <td>61</td>
+    <td>...</td>
+    <td>144</td>
+    <td>A</td>
+    <td>Major</td>
+    <td>60</td>
+    <td>24</td>
+    <td>39</td>
+    <td>57</td>
+    <td>0</td>
+    <td>8</td>
+    <td>3</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>949</td>
+    <td>Bigger Than The Whole Sky</td>
+    <td>Taylor Swift</td>
+    <td>1</td>
+    <td>2022</td>
+    <td>10</td>
+    <td>21</td>
+    <td>1180</td>
+    <td>0</td>
+    <td>121871870</td>
+    <td>4</td>
+    <td>...</td>
+    <td>166</td>
+    <td>F#</td>
+    <td>Major</td>
+    <td>42</td>
+    <td>7</td>
+    <td>24</td>
+    <td>83</td>
+    <td>1</td>
+    <td>12</td>
+    <td>6</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>950</td>
+    <td>A Veces (feat. Feid)</td>
+    <td>Feid, Paulo Londra</td>
+    <td>2</td>
+    <td>2022</td>
+    <td>11</td>
+    <td>3</td>
+    <td>573</td>
+    <td>0</td>
+    <td>73513683</td>
+    <td>2</td>
+    <td>...</td>
+    <td>92</td>
+    <td>C#</td>
+    <td>Major</td>
+    <td>80</td>
+    <td>81</td>
+    <td>67</td>
+    <td>4</td>
+    <td>0</td>
+    <td>8</td>
+    <td>6</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>951</td>
+    <td>En La De Ella</td>
+    <td>Feid, Sech, Jhayco</td>
+    <td>3</td>
+    <td>2022</td>
+    <td>10</td>
+    <td>20</td>
+    <td>1320</td>
+    <td>0</td>
+    <td>133895612</td>
+    <td>29</td>
+    <td>...</td>
+    <td>97</td>
+    <td>C#</td>
+    <td>Major</td>
+    <td>82</td>
+    <td>67</td>
+    <td>77</td>
+    <td>8</td>
+    <td>0</td>
+    <td>12</td>
+    <td>5</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>952</td>
+    <td>Alone</td>
+    <td>Burna Boy</td>
+    <td>1</td>
+    <td>2022</td>
+    <td>11</td>
+    <td>4</td>
+    <td>782</td>
+    <td>2</td>
+    <td>96007391</td>
+    <td>27</td>
+    <td>...</td>
+    <td>90</td>
+    <td>E</td>
+    <td>Minor</td>
+    <td>61</td>
+    <td>32</td>
+    <td>67</td>
+    <td>15</td>
+    <td>0</td>
+    <td>11</td>
+    <td>5</td>
   </tr>
 </table>
+
 > [!Tip]
 > `encoding='ISO-8859-1'` was used because ISO-8859[^2] is a family of single-byte encoding schemes used to represent alphabets that can be represented within the range of 127 to 255. These various alphabets are defined as "parts" in the format ISO-8859-n, the most familiar of these likely being ISO-8859-1 aka 'Latin-1'.
 
