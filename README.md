@@ -41,12 +41,22 @@ Therefore, the goal of this EDA is to shed light on the elements that contribute
 ---
 
 ## Loading the Dataset
-- Before doing the analysis and interpretation of data, load the data set first using `pd.read_csv()`
+- Before doing the analysis and interpretation of data, import first the libraries that will be used which are pandas, matplot, and seaborn.
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+- After that is done load the data set using `pd.read_csv()`
 
 🌱 Input:
 ```python
+# reading the csv, loading the dataset
 spotify = 'spotify-2023.csv'
 df = pd.read_csv(spotify, encoding='ISO-8859-1')
+# printing the dataset
 df
 ```
 🌳 Output:
@@ -362,6 +372,7 @@ When loading a csv file there are some accented characters, special symbols, etc
 🌱 Input:
 
 ```python
+#get the size of the dataset
 shape = df.shape
 print(f"The dataset has {shape[0]} rows and {shape[1]} columns.")
 ```
@@ -381,6 +392,7 @@ The dataset has 953 rows and 24 columns.
 
 🌱 Input:
 ``` python
+# getting the summary of the dataset
 df.info()
 ```
 
@@ -391,32 +403,32 @@ RangeIndex: 953 entries, 0 to 952
 
 Data columns (total 24 columns):
 
-| # Column | Non-Null Count & Dtype |
-| ------------- | ------------- |
-|0  track_name  | 953 non-null  -  object |
-|1  artist(s)_name | 953 non-null  -  object |
-|2  artist_count | 953 non-null  -  int64|
-|3  released_year | 953 non-null  -  int64 |
-|4  released_month | 953 non-null  -  int64 |
-|5  released_day | 953 non-null  -  int64 |
-|6  in_spotify_playlists | 953 non-null  -  int64 |
-|7  in_spotify_charts | 953 non-null  -  int64 |
-|8  streams | 953 non-null  -  object |
-|9  in_apple_playlists | 953 non-null  -  int64 |
-|10  in_apple_charts | 953 non-null  -  int64 |
-|11  in_deezer_playlists | 953 non-null  -  object |
-|12  in_deezer_charts | 953 non-null  -  int64 |
-|13  in_shazam_charts | 903 non-null  -  object |
-|14  bpm | 953 non-null  -  int64 |
-|15  key | 858 non-null  -  object |
-|16  mode | 953 non-null  -  object |
-|17  danceability_% | 953 non-null  -  int64 |
-|18  valence_% | 953 non-null  -  int64 |
-|19  energy_% | 953 non-null  -  int64 |
-|20  acousticness_% | 953 non-null  -  int64 |
-|21  instrumentalness_% | 953 non-null  -  int64 |
-|22  liveness_% | 953 non-null  -  int64 |
-|23  speechiness_% | 953 non-null  -  int64 |
+| # | Column | Non-Null Count |  Dtype |
+| ------------- | ------------- | -------------- | ----------- |
+|0|  track_name  | 953 non-null   | object |
+|1|  artist(s)_name | 953 non-null  |  object |
+|2|  artist_count | 953 non-null  | int64|
+|3|  released_year | 953 non-null  |  int64 |
+|4|  released_month | 953 non-null  |  int64 |
+|5|  released_day | 953 non-null  |  int64 |
+|6|  in_spotify_playlists | 953 non-null  |  int64 |
+|7|  in_spotify_charts | 953 non-null  |  int64 |
+|8|  streams | 953 non-null  |  object |
+|9|  in_apple_playlists | 953 non-null  |  int64 |
+|10|  in_apple_charts | 953 non-null  |  int64 |
+|11|  in_deezer_playlists | 953 non-null  |  object |
+|12|  in_deezer_charts | 953 non-null  |  int64 |
+|13|  in_shazam_charts | 903 non-null  |  object |
+|14|  bpm | 953 non-null  |  int64 |
+|15|  key | 858 non-null  |  object |
+|16|  mode | 953 non-null  |  object |
+|17|  danceability_% | 953 non-null  |  int64 |
+|18|  valence_% | 953 non-null  |  int64 |
+|19|  energy_% | 953 non-null  |  int64 |
+|20|  acousticness_% | 953 non-null  |  int64 |
+|21|  instrumentalness_% | 953 non-null  |  int64 |
+|22|  liveness_% | 953 non-null  |  int64 |
+|23|  speechiness_% | 953 non-null  |  int64 |
 
 dtypes: int64(17), object(7)
 
@@ -433,14 +445,95 @@ To explain the results above, there are a total of 24 columns that are related t
 ---
 
 ## Basic Descriptive Statistics
-1. What are the mean, median, and standard deviation of the streams column?
-- To find the mean, median, and standards deviation we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
+
+- Before getting the mean, median, and standard deviation, use the code `.describe()` first to get the summary of the statistics for each numeric column in the dataset.
+
 🌱 Input:
 ```python
-
+# to get the summary of numerical values in the dataset
+df.describe().round(4)
 ```
+
+🌳 Output:
+
+| | artist_count | released_year | released_month | released_day | in_spotify_playlists | in_spotify_charts | in_apple_playlists | in_apple_charts | in_deezer_charts | bpm | danceability_% | valence_% | energy_% | acousticness_% | instrumentalness_% | liveness_% | speechiness_% |
+| -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
+| **count** | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 | 953.0000 |
+| **mean** |	1.5561	| 2018.2382 |	6.0336 |	13.9307 |	5200.1249 |	12.0094 |	67.8122 |	51.9087 |	2.6663 |	122.5404 |	66.9696 |	51.4313	| 64.2791 |	27.0577 |	1.5813 |	18.2130 |	10.1312 |
+| **std** |	0.8930 |	11.1162 |	3.5664 |	9.2019 |	7897.6090 |	19.5760 |	86.4415 |	50.6302 |	6.0356 |	28.0578 |	14.6306 |	23.4806 |	16.5505 |	25.9961 |	8.4098 |	13.7112 |	9.9129 |
+| **min** |	1.0000 |	1930.0000 |	1.0000 |	1.0000 |	31.0000 |	0.0000 |	0.0000 |	0.0000 |	0.0000 |	65.0000 |	23.0000 |	4.0000 |	9.0000 |	0.0000 |	0.0000 |	3.0000 |	2.0000 |
+| **25%** |	1.0000 |	2020.0000 |	3.0000 |	6.0000 |	875.0000 |	0.0000 |	13.0000 |	7.0000 |	0.0000 |	100.0000 |	57.0000 |	32.0000 |	53.0000 |	6.0000 |	0.0000 |	10.0000 |	4.0000 |
+| **50%** |	1.0000 |	2022.0000 |	6.0000 |	13.0000 |	2224.0000 |	3.0000 |	34.0000 |	38.0000 |	0.0000 |	121.0000 |	69.0000 |	51.0000 |	66.0000 |	18.0000 |	0.0000 |	12.0000 |	6.0000 |
+| **75%** |	2.0000 |	2022.0000 |	9.0000 |	22.0000 |	5542.0000 |	16.0000 |	88.0000 |	87.0000 |	2.0000 |	140.0000 |	78.0000 |	70.0000 |	77.0000 |	43.0000 |	0.0000 |	24.0000 |	11.0000 |
+| **max** |	8.0000 |	2023.0000 |	12.0000 |	31.0000 |	52898.0000 |	147.0000 |	672.0000 |	275.0000 |	58.0000 |	206.0000 |	96.0000 |	97.0000 |	97.0000 |	97.0000 |	91.0000 |	97.0000 |	64.0000 |
+
+1. What are the mean, median, and standard deviation of the streams column?
+- To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
   
+🌱 Input:
+```python
+# converts the values in the strems columns to number and replaces the non-numbers to NaN 
+df['streams'] = pd.to_numeric(df['streams'], errors='coerce')
+#removes the Nan values
+df = df.dropna(subset=['streams'])
+# calculates the mean
+df['streams'].mean()
+```
+
+🌳 Output:
+
+514137424.93907565
+
+<br>
+
+🌱 Input:
+``` python
+# calculates the median
+df['streams'].median()
+```
+
+🌳 Output:
+290530915.0
+
+<br>
+  
+🌱 Input:
+``` python
+# calculates the standard deviation
+df['streams'].std()
+```
+
+🌳 Output:
+
+566856949.0388832
+
+<br>
+
 2. What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+
+🌱 Input:
+``` python
+# Setting the size of the figure
+plt.figure(figsize=(14, 6))
+
+# Plotting the distribution of the released_year
+plt.subplot(1, 2, 1)  # 1 row, 2 columns, 1st plot
+plt.hist(df['released_year'],  color='red', edgecolor='white')  # Histogram
+plt.title('The Distribution of Released Year')  # Title for the plot
+plt.xlabel('Year')  # X-axis label
+plt.ylabel('Frequency')  # Y-axis label
+
+# Plotting the distribution of the artist_count
+plt.subplot(1, 2, 2)  # 1 row, 2 columns, 2nd plot
+plt.hist(df['artist_count'],  color='pink', edgecolor='white')  # Histogram
+plt.title('The Distribution of Artist Count')  # Title for the plot
+plt.xlabel('Number of Artists')  # X-axis label
+plt.ylabel('Frequency')  # Y-axis label
+
+# Displaying the plots
+plt.show()
+``
+🌳 Output:
 
 
 ---
