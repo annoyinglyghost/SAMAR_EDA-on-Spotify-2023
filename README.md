@@ -370,7 +370,7 @@ print(f"The dataset has {shape[0]} rows and {shape[1]} columns.")
 
 The dataset has 953 rows and 24 columns.
 
-> [!Note]
+> [!Tip]
 > Upon using the `.shape` code, it will automatically get the rows and columns, and using the print function will show the results of the said code. The `.shape` returns a tuple with each index having the number of corresponding elements[^3]. 
 
 [^3]: https://www.w3schools.com/python/numpy/numpy_array_shape.asp
@@ -421,6 +421,14 @@ Data columns (total 24 columns):
 dtypes: int64(17), object(7)
 
 memory usage: 178.8+ KB
+
+**Explanation:**
+To explain the results above, there are a total of 24 columns that are related to the music tracks. Each column represents something in the given dataset. Although in_shazam_charts has 903 non-null entry and key has 858 non-null entries which means that both of these columns contains missing data/entries, most of it contains 953 non-null entries which means that those columns have complete data for all entries. There are also 7 object columns which hold textual information and 17 integer columns which holds numerical data.
+
+> [!Tip]
+> The `.info()` function prints information about the DataFrame.[^4] The information contains the number of columns, column labels, column data types, memory usage, range index, and the number of cells in each column (non-null values).
+
+[^4]:https://www.w3schools.com/python/pandas/ref_df_info.asp
 
 ---
 
@@ -474,28 +482,4 @@ memory usage: 178.8+ KB
 
 
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
