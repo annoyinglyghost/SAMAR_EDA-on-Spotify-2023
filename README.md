@@ -532,7 +532,7 @@ plt.ylabel('Frequency')  # Y-axis label
 
 # Displaying the plots
 plt.show()
-``
+```
 🌳 Output:
 
 
