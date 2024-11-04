@@ -370,17 +370,57 @@ print(f"The dataset has {shape[0]} rows and {shape[1]} columns.")
 
 The dataset has 953 rows and 24 columns.
 
-<details>
-<summary> Explanation </summary>
-  <br>
-Upon using the `.shape` code, it will automatically get the rows and columns, and using the print function will show the results of the said code. The `.shape` returns a tuple with each index having the number of corresponding elements[^3]. 
-</details>
+> [!Note]
+> Upon using the `.shape` code, it will automatically get the rows and columns, and using the print function will show the results of the said code. The `.shape` returns a tuple with each index having the number of corresponding elements[^3]. 
 
 [^3]: https://www.w3schools.com/python/numpy/numpy_array_shape.asp
 
 <br>
 
 2. What are the data types of each column? Are there any missing values?
+
+🌱 Input:
+``` python
+df.info()
+```
+
+🌳 Output:
+<class 'pandas.core.frame.DataFrame'>
+
+RangeIndex: 953 entries, 0 to 952
+
+Data columns (total 24 columns):
+
+| # Column | Non-Null Count & Dtype |
+| ------------- | ------------- |
+|0  track_name  | 953 non-null  -  object |
+|1  artist(s)_name | 953 non-null  -  object |
+|2  artist_count | 953 non-null  -  int64|
+|3  released_year | 953 non-null  -  int64 |
+|4  released_month | 953 non-null  -  int64 |
+|5  released_day | 953 non-null  -  int64 |
+|6  in_spotify_playlists | 953 non-null  -  int64 |
+|7  in_spotify_charts | 953 non-null  -  int64 |
+|8  streams | 953 non-null  -  object |
+|9  in_apple_playlists | 953 non-null  -  int64 |
+|10  in_apple_charts | 953 non-null  -  int64 |
+|11  in_deezer_playlists | 953 non-null  -  object |
+|12  in_deezer_charts | 953 non-null  -  int64 |
+|13  in_shazam_charts | 903 non-null  -  object |
+|14  bpm | 953 non-null  -  int64 |
+|15  key | 858 non-null  -  object |
+|16  mode | 953 non-null  -  object |
+|17  danceability_% | 953 non-null  -  int64 |
+|18  valence_% | 953 non-null  -  int64 |
+|19  energy_% | 953 non-null  -  int64 |
+|20  acousticness_% | 953 non-null  -  int64 |
+|21  instrumentalness_% | 953 non-null  -  int64 |
+|22  liveness_% | 953 non-null  -  int64 |
+|23  speechiness_% | 953 non-null  -  int64 |
+
+dtypes: int64(17), object(7)
+
+memory usage: 178.8+ KB
 
 ---
 
