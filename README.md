@@ -1,5 +1,5 @@
 
-# 🎵 Understanding Musical Trends: EDA on Spotify’s Most Streamed Songs of 2023**
+# 🎵 Understanding Musical Trends: EDA on Spotify’s Most Streamed Songs of 2023
 
 ## Foreword
 
@@ -21,6 +21,8 @@ Therefore, the goal of this EDA is to shed light on the elements that contribute
 ---
 
 ## Content
+
+- **[Loading the Dataset](#loading-the-dataset)**
 
 - **[Overview of Dataset](#overview-of-dataset)**
 
@@ -355,7 +357,28 @@ When loading a csv file there are some accented characters, special symbols, etc
 
 ## Overview of Dataset
 1. How many rows and columns does the dataset contain?
+- To find the rown and column of the dataset use the code `.shape`
 
+🌱 Input:
+
+```python
+shape = df.shape
+print(f"The dataset has {shape[0]} rows and {shape[1]} columns.")
+```
+
+🌳Output:
+
+The dataset has 953 rows and 24 columns.
+
+<details>
+<summary> Explanation </summary>
+  <br>
+Upon using the `.shape` code, it will automatically get the rows and columns, and using the print function will show the results of the said code. The `.shape` returns a tuple with each index having the number of corresponding elements[^3]. 
+</details>
+
+[^3]: https://www.w3schools.com/python/numpy/numpy_array_shape.asp
+
+<br>
 
 2. What are the data types of each column? Are there any missing values?
 
