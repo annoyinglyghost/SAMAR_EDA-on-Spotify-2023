@@ -447,7 +447,6 @@ To explain the results above, there are a total of 24 columns that are related t
 <br>
 
 ## Basic Descriptive Statistics
-
 - Before getting the mean, median, and standard deviation, use the code `.describe()` first to get the summary of the statistics for each numeric column in the dataset.
 
 🌱 Input:
@@ -472,7 +471,7 @@ df.describe().round(4)
 <br>
   
 What are the mean, median, and standard deviation of the streams column?
-To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
+- To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
   
 🌱 Input:
 ```python
@@ -515,13 +514,12 @@ df['streams'].std()
 <br>
 
 What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
-
-We can graph whether there are noticeable trends or outliers in the distribution of released_year and artist_count. Using matplotlib, a graph can be generated to help notice these trends. To explain, `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
+- We can graph whether there are noticeable trends or outliers in the distribution of released_year and artist_count. Using matplotlib, a graph can be generated to help notice these trends. To explain, `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
 
 
 🌱 Input:
 ``` python
-# Setting the size of the figure
+# Set the size of the figure
 plt.figure(figsize=(14, 6))
 
 # Plotting the distribution of the released_year
@@ -553,8 +551,7 @@ As shown in the graphs above, most tracks were released around 2020. This could 
 
 ## Top Performers
 Which track has the highest number of streams? Display the top 5 most streamed tracks.
-
-To find the highest number of streams `.nlargest()` finds the rows with the highest value in the specified column. The `.reser_index()` resets the index from 0 up to desired number rows. 
+- To find the highest number of streams `.nlargest()` finds the rows with the highest value in the specified column. The `.reser_index()` resets the index from 0 up to desired number rows. 
 
 🌱 Input:
 ```python
@@ -572,13 +569,14 @@ df.nlargest(5, 'streams')[['track_name', 'streams']].reset_index()
 | 3 | 620 | Dance Monkey | 2.864792e+09 |
 | 4 | 41 | Sunflower - Spider-Man: Into the Spider-Verse | 2.808097e+09 |
 
+**Answer**
+
 The results show that the most streamed track in 2023 is Blinding Lights.
 
 <br>
 
 Who are the top 5 most frequent artists based on the number of tracks in the dataset?
-
-Just like from above, the code `.value_counts()`, `.nlargest()` and, `.reset_index()` was used to get the top 5 most frequent artists based on the number of tracks.
+- Just like from above, the code `.value_counts()`, `.nlargest()` and, `.reset_index()` was used to get the top 5 most frequent artists based on the number of tracks.
 
 🌱 Input:
 ```python
@@ -595,42 +593,138 @@ df['artist(s)_name'].value_counts().nlargest(5).reset_index()
 | 3 | SZA | 19 |
 | 4 | Harry Styles | 17 |
 
-The results show that the top artists in 2023 based on the number of tracks is Taylor Swift 🌟
+**Answer**
+
+The results show that the top artist in 2023 based on the number of tracks is Taylor Swift 🌟
 
 ---
 
 ## Temporal Trends
-Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
+Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year. 
+- To analyze the trend, graphs will be used again to see the results in the number of tracks released over time. The matplotlib is used again to effectively show these trends.
 
 🌱 Input:
 ```python
-
+# Count and dort the number of tracks in each year
 tyear = df['released_year'].value_counts().sort_index()
-tmonth = df['released_month'].value_counts().sort_index()
 
+# Set the size of the figure
 plt.figure(figsize=(20, 5))
 
-plt.subplot(1, 2, 1)
-tyear.plot(kind='bar', color='red')
+# plot for tracks that are released per year
+plt.plot(1, 2, 1)
+tyear.plot(kind='bar', color='pink')
 plt.title('Tracks Released Per Year')
 
-plt.subplot(1, 2, 2)
-tmonth.plot(kind='bar', color='pink')
-plt.title('Tracks Released Per Month')
-
+# Display the plot
 plt.show()
 ```
 
-2. Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
+🌳 Output:
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/ttrends.png)
 
+**Answer**
+
+As shown on the graph, back in the 1900's there are only a small amount of tracks that are released. Then on the year 2010 and above, it is seen that the number of tracks released are ascending with the year 2022 being the highest year with tracks released.
+
+<br>
+
+Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
+- To find the number of tracks released per month a graph is again to be created.
+
+🌱 Input:
+```python
+# Count and dort the number of tracks in each month
+tyear = df['released_month'].value_counts().sort_index()
+
+# Set the size of the figure
+plt.figure(figsize=(20, 5))
+
+# plot for tracks that are released per month
+plt.plot(1, 2, 1)
+tyear.plot(kind='bar', color='pink')
+plt.title('Tracks Released Per Month')
+
+# Display the plot
+plt.show()
+```
+
+🌳 Output:
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/ttrends2.png)
+
+**Answer**
+
+The graph shows that the month that has the most releases is January and May and the least releases per month is August. There are no noticeable patterns on the tracks released per month
 
 ---
 
 ## Genre and Music Characteristics
-1. Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
+Examine the correlation between streams and musical attributes like bpm, danceability_%, and energy_%. Which attributes seem to influence streams the most?
+- A scatter plot is one of the ways to find the correlation between the three. By using `plt.scatter()`, a plot can be generated to show the given correlation. The other codes are also used just like the ones from before.
 
-2. Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
+🌱 Input:
+```python
+# Set the size of the figure
+plt.figure(figsize=(18, 6))
 
+# Create the scatter plot
+plt.scatter(df['bpm'], df['streams'], color='red')
+plt.scatter(df['danceability_%'], df['streams'], color='pink')
+plt.scatter(df['energy_%'], df['streams'], color='purple')
+plt.title('BPM vs Danceability (%)')
+
+# Show the results
+plt.legend(['bpm', 'danceability_%', 'energy_%'  ])
+plt.tight_layout()
+plt.show()
+```
+
+🌳 Output:
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot1.png)
+
+<br>
+
+Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
+
+🌱 Input:
+```python
+# Set the size of the figure
+plt.figure(figsize=(18, 6))
+
+# Create the scatter plot
+plt.scatter(df['danceability_%'], df['streams'], color='blue')
+plt.scatter(df['energy_%'], df['streams'], color='green')
+plt.title('Danceability and Energy')
+
+# Show the results
+plt.legend(['danceability_%', 'energy_%'  ], bbox_to_anchor=(1, 1), loc=1, borderaxespad=0)
+plt.tight_layout()
+plt.show()
+```
+
+🌳 Output:
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot2.png)
+
+<br>
+
+🌱 Input:
+```python
+# Set the size of the figure
+plt.figure(figsize=(18, 6))
+
+# Create the scatter plot
+plt.scatter(df['valence_%'], df['streams'], color='orange')
+plt.scatter(df['acousticness_%'], df['streams'], color='black')
+plt.title('Valence and Acousticness')
+
+# Show the results
+plt.legend(['valence_%', 'acousticness_%'  ], bbox_to_anchor=(1, 1), loc=1, borderaxespad=0)
+plt.tight_layout()
+plt.show()
+```
+
+🌳 Output:
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot3.png)
 
 ---
 
