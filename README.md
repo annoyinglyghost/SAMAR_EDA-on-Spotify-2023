@@ -522,8 +522,7 @@ df['streams'].std()
 <br>
 
 What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
-- We can graph whether there are noticeable trends or outliers in the distribution of released_year and artist_count. Using matplotlib, a graph can be generated to help notice these trends. To explain, `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
-
+- We can graph whether there are noticeable trends or outliers in the distribution of released_year and artist_count. Using matplotlib, a graph can be generated to help notice these trends.
 
 🌱 Input:
 ``` python
@@ -556,6 +555,8 @@ plt.show()
 
 As shown in the graphs above, most tracks were released around 2020. This could be because Spotify and other streaming platforms have become more well-known recently. Also, plenty of tracks were released in this time because more and more artists are making music. Single artists create most of the tracks, and a few artists collaborate to make music.
 
+>[!Note]
+>The codes `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
 ---
 
 ## Top Performers
@@ -691,6 +692,10 @@ plt.show()
 🌳 Output:
 ![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot1.png)
 
+**Answer**
+
+As seen from the scatter plot above, danceability and energy show the most correlation between all of them, and they influence streams the most.
+
 <br>
 
 Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
@@ -714,6 +719,10 @@ plt.show()
 🌳 Output:
 ![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot2.png)
 
+**Answer**
+
+Shown above is the scatter plot between danceability and energy, and it is seen that the plots are all scattered, which means that there is no correlation between the two.
+
 <br>
 
 🌱 Input:
@@ -735,18 +744,109 @@ plt.show()
 🌳 Output:
 ![image](https://github.com/annoyinglyghost/Images-2-/blob/main/splot3.png)
 
+**Answer**
+
+Just like from the scatter plot before, it is seen that the plots are scattered, which signifies that no correlation is between valence and acousticness.
+
 ---
 
-## Platform Popularity
-1. How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+>[!Tip]
+>With Pyplot, you can use the scatter() function to draw a scatter plot.[^6] The scatter() function plots one dot for each observation. It needs two arrays of the same length, one for the values of the x-axis, and one for values on the y-axis
 
+[^6](https://www.w3schools.com/python/matplotlib_scatter.asp)
+
+<br>
+
+## Platform Popularity
+How do the numbers of tracks in spotify_playlists, spotify_charts, and apple_playlists compare? Which platform seems to favor the most popular tracks?
+- To compare the three platforms, creating a graph to show the results will be best. Just like the ones above, a bar graph is one of the graphs you can do to show the outcome. 
+
+🌱 Input:
+```python
+#  Convert columns to numeric
+df.loc[:, 'in_spotify_playlists'] = pd.to_numeric(df['in_spotify_playlists'], errors='coerce')
+df.loc[:, 'in_deezer_playlists'] = pd.to_numeric(df['in_deezer_playlists'], errors='coerce')
+df.loc[:, 'in_apple_playlists'] = pd.to_numeric(df['in_apple_playlists'], errors='coerce')
+
+# Sum the number of playlists 
+spotify_sum = df['in_spotify_playlists'].sum()
+deezer_sum = df['in_deezer_playlists'].sum()
+apple_sum = df['in_apple_playlists'].sum()
+
+# Create a Series to hold the counts
+playlist_counts = pd.Series([spotify_sum, deezer_sum, apple_sum], index=['Spotify', 'Deezer', 'Apple'])
+
+# Plot the data
+playlist_counts.plot(kind='bar', color='pink')
+plt.title('Number of Tracks in Playlists')
+plt.xlabel('Platform')
+plt.ylabel('Total Playlist Count')
+plt.show()
+```
+
+🌳 Output:
+![Image](https://github.com/annoyinglyghost/Images-2-/blob/main/platform.png)
+
+**Answer**
+The three playlists were first converted to numerical data to get the number to compare the three platforms. As shown in the figure above, Spotify is, without a doubt, the platform that favors the most popular tracks.
+
+<br>
 
 ---
 
 ## Advanced Analysis
-1. Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
+Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
+- 
 
-2. Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+🌱 Input:
+```python
+# Calculate the average streams 
+avg_streams_by_key = df.groupby('key')['streams'].mean()
+avg_streams_by_mode = df.groupby('mode')['streams'].mean()
+
+# Setting the size of the figure
+plt.figure(figsize=(12, 5))
+
+# Bar plot for average streams by Key
+plt.subplot(1, 2, 1)
+avg_streams_by_key.plot(kind='bar', color='pink')
+plt.title('Average Streams by Key')
+plt.xlabel('Key')
+plt.ylabel('Average Streams')
+
+# Bar plot for average streams by Mode (Major vs Minor)
+plt.subplot(1, 2, 2)
+avg_streams_by_mode.plot(kind='bar', color='red')
+plt.title('Average Streams by Mode (Major vs Minor)')
+plt.xlabel('Mode (0 = Minor, 1 = Major)')
+plt.ylabel('Average Streams')
+
+# Display the results
+plt.tight_layout()
+plt.show()
+```
+
+🌳 Output:
+![image](https://github.com/user-attachments/assets/005832e2-9b27-4899-841e-615605ed9e53)
+
+<br> 
+
+Do certain genres or artists consistently appear in more playlists or charts? Perform an analysis to compare the most frequently appearing artists in playlists or charts.
+
+🌱 Input:
+```python
+# Sample data setup
+artist_playlist_counts = df.groupby('artist(s)_name')[['in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists']].sum()
+artist_playlist_counts['total_appearances'] = artist_playlist_counts.sum(axis=1)
+
+# Get the top 10 artists
+top_artists = artist_playlist_counts.sort_values('total_appearances', ascending=False).head(10)
+
+# Displaying the result 
+top_artists.reset_index()
+```
+
+🌳 Output:
 
 
 ---
