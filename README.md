@@ -698,7 +698,7 @@ As seen from the scatter plot above, danceability and energy show the most corre
 
 <br>
 
-Is there a correlation between danceability_% and energy_%? How about valence_% and acousticness_%?
+Is there a correlation between danceability_% and energy_%?
 
 🌱 Input:
 ```python
@@ -724,6 +724,8 @@ plt.show()
 Shown above is the scatter plot between danceability and energy, and it is seen that the plots are all scattered, which means that there is no correlation between the two.
 
 <br>
+
+How about valence_% and acousticness_%?
 
 🌱 Input:
 ```python
@@ -769,12 +771,12 @@ df.loc[:, 'in_deezer_playlists'] = pd.to_numeric(df['in_deezer_playlists'], erro
 df.loc[:, 'in_apple_playlists'] = pd.to_numeric(df['in_apple_playlists'], errors='coerce')
 
 # Sum the number of playlists 
-spotify_sum = df['in_spotify_playlists'].sum()
-deezer_sum = df['in_deezer_playlists'].sum()
-apple_sum = df['in_apple_playlists'].sum()
+ssum = df['in_spotify_playlists'].sum()
+dsum = df['in_deezer_playlists'].sum()
+asum = df['in_apple_playlists'].sum()
 
 # Create a Series to hold the counts
-playlist_counts = pd.Series([spotify_sum, deezer_sum, apple_sum], index=['Spotify', 'Deezer', 'Apple'])
+playlist_counts = pd.Series([ssum, dsum, asum], index=['Spotify', 'Deezer', 'Apple'])
 
 # Plot the data
 playlist_counts.plot(kind='bar', color='pink')
@@ -835,9 +837,9 @@ Do certain genres or artists consistently appear in more playlists or charts? Pe
 
 🌱 Input:
 ```python
-# Sample data setup
-artist_playlist_counts = df.groupby('artist(s)_name')[['in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists']].sum()
-artist_playlist_counts['total_appearances'] = artist_playlist_counts.sum(axis=1)
+# Data setup
+acounts = df.groupby('artist(s)_name')[['in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists']].sum()
+acounts['total'] = acounts.sum(axis=1)
 
 # Get the top 10 artists
 top_artists = artist_playlist_counts.sort_values('total_appearances', ascending=False).head(10)
@@ -847,6 +849,18 @@ top_artists.reset_index()
 ```
 
 🌳 Output:
+| | artist(s)_name |	in_spotify_playlists |	in_spotify_charts |	in_apple_playlists |	total_appearances |
+| -------- | ------------ | ----------- | ------------ | ----------- | ------------ |
+| 0	| The Weeknd |	144053 |	180 |	1677 |	145910 |
+| 1	| Taylor Swift |	132974 |	542 |	1796 |	135312 |
+| 2	| Ed Sheeran |	128758 |	94 |	1448 |	130300 |
+| 3	| Harry Styles |	110026 |	185 |	1741 |	111952 |
+| 4	| Eminem |	87331 |	152 |	475 |	87958 |
+| 5	| Arctic Monkeys |	84016 |	190 |	241 |	84447 |
+| 6	| Coldplay |	75716 |	72 |	381 |	76169 |
+| 7	| Avicii |	68241 |	42 |	407 |	68690 |
+| 8	| Dr. Dre, Snoop Dogg |	65728 |	0 |	283 |	66011 |
+| 9	| Adele |	65049 |	69 |	646 |	65764 |
 
 
 ---
