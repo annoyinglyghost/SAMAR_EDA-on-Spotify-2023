@@ -753,7 +753,7 @@ Just like from the scatter plot before, it is seen that the plots are scattered,
 ---
 
 >[!Tip]
->With Pyplot, you can use the scatter() function to draw a scatter plot. [^6] The scatter() function plots one dot for each observation. It needs two arrays of the same length, one for the values of the x-axis, and one for values on the y-axis
+>With Pyplot, you can use the `.scatter()` function to draw a scatter plot. [^6] The `.scatter()` function plots one dot for each observation. It needs two arrays of the same length, one for the values of the x-axis, and one for values on the y-axis
 
 [^6]: https://www.w3schools.com/python/matplotlib_scatter.asp
 
