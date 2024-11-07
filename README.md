@@ -366,8 +366,8 @@ When loading a csv file there are some accented characters, special symbols, etc
 ---
 
 ## Overview of Dataset
-1. How many rows and columns does the dataset contain?
-- To find the rown and column of the dataset use the code `.shape`
+How many rows and columns does the dataset contain?
+To find the row and column of the dataset use the code `.shape`
 
 🌱 Input:
 
@@ -388,7 +388,7 @@ The dataset has 953 rows and 24 columns.
 
 <br>
 
-2. What are the data types of each column? Are there any missing values?
+What are the data types of each column? Are there any missing values?
 
 🌱 Input:
 ``` python
@@ -444,6 +444,8 @@ To explain the results above, there are a total of 24 columns that are related t
 
 ---
 
+<br>
+
 ## Basic Descriptive Statistics
 
 - Before getting the mean, median, and standard deviation, use the code `.describe()` first to get the summary of the statistics for each numeric column in the dataset.
@@ -467,8 +469,10 @@ df.describe().round(4)
 | **75%** |	2.0000 |	2022.0000 |	9.0000 |	22.0000 |	5542.0000 |	16.0000 |	88.0000 |	87.0000 |	2.0000 |	140.0000 |	78.0000 |	70.0000 |	77.0000 |	43.0000 |	0.0000 |	24.0000 |	11.0000 |
 | **max** |	8.0000 |	2023.0000 |	12.0000 |	31.0000 |	52898.0000 |	147.0000 |	672.0000 |	275.0000 |	58.0000 |	206.0000 |	96.0000 |	97.0000 |	97.0000 |	97.0000 |	91.0000 |	97.0000 |	64.0000 |
 
-1. What are the mean, median, and standard deviation of the streams column?
-- To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
+<br>
+  
+What are the mean, median, and standard deviation of the streams column?
+To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
   
 🌱 Input:
 ```python
@@ -493,6 +497,7 @@ df['streams'].median()
 ```
 
 🌳 Output:
+
 290530915.0
 
 <br>
@@ -509,7 +514,10 @@ df['streams'].std()
 
 <br>
 
-2. What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
+
+We can graph whether there are noticeable trends or outliers in the distribution of released_year and artist_count. Using matplotlib, a graph can be generated to help notice these trends. To explain, `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
+
 
 🌱 Input:
 ``` python
@@ -530,24 +538,88 @@ plt.title('The Distribution of Artist Count')  # Title for the plot
 plt.xlabel('Number of Artists')  # X-axis label
 plt.ylabel('Frequency')  # Y-axis label
 
-# Displaying the plots
+# Display the plots
 plt.show()
 ```
 🌳 Output:
 
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/distribution_yr.png)
+
+**Answer**
+
+As shown in the graphs above, most tracks were released around 2020. This could be because Spotify and other streaming platforms have become more well-known recently. Also, plenty of tracks were released in this time because more and more artists are making music. Single artists create most of the tracks, and a few artists collaborate to make music.
 
 ---
 
 ## Top Performers
-1. Which track has the highest number of streams? Display the top 5 most streamed tracks.
+Which track has the highest number of streams? Display the top 5 most streamed tracks.
 
-2. Who are the top 5 most frequent artists based on the number of tracks in the dataset?
+To find the highest number of streams `.nlargest()` finds the rows with the highest value in the specified column. The `.reser_index()` resets the index from 0 up to desired number rows. 
 
+🌱 Input:
+```python
+#getting the 5 most streamed tracks
+df.nlargest(5, 'streams')[['track_name', 'streams']].reset_index()
+```
+
+🌳 Output:
+
+| | index | track_name | streams |
+| ----- | --------- | ----------- | ----------- |
+| 0 | 55 | Blinding Lights | 3.703895e+09 |
+| 1 | 179 | Shape of You | 3.703895e+09 |
+| 2 | 86 | Someone You Loved | 2.887242e+09 |
+| 3 | 620 | Dance Monkey | 2.864792e+09 |
+| 4 | 41 | Sunflower - Spider-Man: Into the Spider-Verse | 2.808097e+09 |
+
+The results show that the most streamed track in 2023 is Blinding Lights.
+
+<br>
+
+Who are the top 5 most frequent artists based on the number of tracks in the dataset?
+
+Just like from above, the code `.value_counts()`, `.nlargest()` and, `.reset_index()` was used to get the top 5 most frequent artists based on the number of tracks.
+
+🌱 Input:
+```python
+# Get the top 5 artists
+df['artist(s)_name'].value_counts().nlargest(5).reset_index()
+```
+
+🌳 Output:
+| | artists(s)_name | count |
+|------|---------|------|
+| 0 | Taylor Swift | 34 |
+| 1 | The Weekend | 22 |
+| 2 | Bad Bunny | 19 |
+| 3 | SZA | 19 |
+| 4 | Harry Styles | 17 |
+
+The results show that the top artists in 2023 based on the number of tracks is Taylor Swift 🌟
 
 ---
 
 ## Temporal Trends
-1. Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
+Analyze the trends in the number of tracks released over time. Plot the number of tracks released per year.
+
+🌱 Input:
+```python
+
+tyear = df['released_year'].value_counts().sort_index()
+tmonth = df['released_month'].value_counts().sort_index()
+
+plt.figure(figsize=(20, 5))
+
+plt.subplot(1, 2, 1)
+tyear.plot(kind='bar', color='red')
+plt.title('Tracks Released Per Year')
+
+plt.subplot(1, 2, 2)
+tmonth.plot(kind='bar', color='pink')
+plt.title('Tracks Released Per Month')
+
+plt.show()
+```
 
 2. Does the number of tracks released per month follow any noticeable patterns? Which month sees the most releases?
 
