@@ -468,10 +468,15 @@ df.describe().round(4)
 | **75%** |	2.0000 |	2022.0000 |	9.0000 |	22.0000 |	5542.0000 |	16.0000 |	88.0000 |	87.0000 |	2.0000 |	140.0000 |	78.0000 |	70.0000 |	77.0000 |	43.0000 |	0.0000 |	24.0000 |	11.0000 |
 | **max** |	8.0000 |	2023.0000 |	12.0000 |	31.0000 |	52898.0000 |	147.0000 |	672.0000 |	275.0000 |	58.0000 |	206.0000 |	96.0000 |	97.0000 |	97.0000 |	97.0000 |	91.0000 |	97.0000 |	64.0000 |
 
+> [!Tip]
+> The `.describe()` method in Pandas is a convenient way to get a quick overview of your data. This is why this code is perfect for getting the summary of the dataset.[^5]
+
+[^5]: https://saturncloud.io/blog/python-spyder-display-all-columns-of-a-pandas-dataframe-in-describe/#:~:text=describe()%E2%80%9D%20Method,and%20maximum%20of%20the%20columns.
+
 <br>
   
 What are the mean, median, and standard deviation of the streams column?
-- To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.meadian()` for the median, and `.std()` for the standard deviation.
+- To find the mean, median, and standard deviation, we can use the code `.mean()` for the mean, `.median()` for the median, and `.std()` for the standard deviation.
   
 🌱 Input:
 ```python
@@ -511,6 +516,9 @@ df['streams'].std()
 
 566856949.0388832
 
+> [!Tip]
+> In using .mean(), .median(), and .std() on a Pandas DataFrame or Series allows you to calculate the mean (average), median (middle value), and standard deviation (measure of spread) of numerical data. 
+
 <br>
 
 What is the distribution of released_year and artist_count? Are there any noticeable trends or outliers?
@@ -542,6 +550,7 @@ plt.show()
 🌳 Output:
 
 ![image](https://github.com/annoyinglyghost/Images-2-/blob/main/distribution_yr.png)
+
 
 **Answer**
 
