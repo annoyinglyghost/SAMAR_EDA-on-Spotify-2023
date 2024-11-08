@@ -787,6 +787,7 @@ plt.show()
 ```
 
 🌳 Output:
+
 ![Image](https://github.com/annoyinglyghost/Images-2-/blob/main/platform.png)
 
 **Answer**
@@ -798,7 +799,7 @@ The three playlists were first converted to numerical data to get the number to 
 
 ## Advanced Analysis
 Based on the streams data, can you identify any patterns among tracks with the same key or mode (Major vs. Minor)?
-- 
+- To identify the patterns among the tracks, you can again use a bar graph to find some patterns or not.
 
 🌱 Input:
 ```python
