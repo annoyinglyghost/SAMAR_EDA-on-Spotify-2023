@@ -834,8 +834,7 @@ plt.show()
 
 **Answer**
 
-As you can see from the results, 
-
+As you can see from the results, a spike came from the A key to the C# key, then back down again to D and up to E, then down to G, and lastly up to G#. It is also noticeable that the keys with the sharps are higher than those without them. On the other hand, the graph on the right side is examined that the primary mode is higher in the number of streams than the minor mode.
 
 <br> 
 
@@ -867,6 +866,10 @@ top_artists.reset_index()
 | 7	| Avicii |	68241 |	42 |	407 |	68690 |
 | 8	| Dr. Dre, Snoop Dogg |	65728 |	0 |	283 |	66011 |
 | 9	| Adele |	65049 |	69 |	646 |	65764 |
+
+**Answer**
+
+Shown on the table, it is observed that the number one artist that appear frequently on all the platforms is The Weekend. Coming closely on the second and third position is Taylor Swift and Ed Sheeran. But when you look at the results one by one, the artist who is most seen on spotify playlist is still The Weekend. Next, the artist who appears the most in spotify charts is Taylor Swift. Lastly, the number one artist on apple playlist is once again Taylor Swift 🌟.
 
 ---
 
