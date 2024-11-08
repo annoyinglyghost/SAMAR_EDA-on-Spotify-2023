@@ -555,7 +555,7 @@ plt.show()
 
 As shown in the graphs above, most tracks were released around 2020. This could be because Spotify and other streaming platforms have become more well-known recently. Also, plenty of tracks were released in this time because more and more artists are making music. Single artists create most of the tracks, and a few artists collaborate to make music.
 
->[!Note]
+>[!Tip]
 >The codes `.value_counts()` and `.sort_index()` count and arrange the counts in order. `plt.figure()` will help in creating the figure of the graph. The `.subplot()` helps in creating the plots side by side, `plt.title()` is used to give the plots titles, and `tracks_per_year/month(kind='bar')` plots the two columns' data as a bar chart to show the tracks released per year and month. Lastly, `plt.show()` shows the bar graph.
 ---
 
