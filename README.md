@@ -862,6 +862,8 @@ top_artists.reset_index()
 | 8	| Dr. Dre, Snoop Dogg |	65728 |	0 |	283 |	66011 |
 | 9	| Adele |	65049 |	69 |	646 |	65764 |
 
-
 ---
 
+## Author
+:red_haired_woman: Mariane Iszley V. Samar
+- @annoyingltghost—https://github.com/annoyinglyghost
