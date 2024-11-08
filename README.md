@@ -830,7 +830,12 @@ plt.show()
 ```
 
 🌳 Output:
-![image](https://github.com/user-attachments/assets/005832e2-9b27-4899-841e-615605ed9e53)
+![image](https://github.com/annoyinglyghost/Images-2-/blob/main/advanced.png)
+
+**Answer**
+
+As you can see from the results, 
+
 
 <br> 
 
@@ -868,3 +873,5 @@ top_artists.reset_index()
 ## Author
 :red_haired_woman: Mariane Iszley V. Samar
 - @annoyingltghost—https://github.com/annoyinglyghost
+
+---
