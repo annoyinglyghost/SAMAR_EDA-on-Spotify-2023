@@ -873,6 +873,9 @@ Shown on the table, it is observed that the number one artist that appear freque
 
 ---
 
+And that's a wrap for the analysis of the data of Spotify 2023. This was such a hard work but also fun at the same time. I enjoyed doing such codes and stuff to learn more about the python language. Hopefully this project was able to make people understand data's and different kinds of approaches to analyze it. In the end, I give thanks to both my Professors Maam Madecheen Pangalinan and Sir Nikko Lobos!
+
+---
 ## Author
 :red_haired_woman: Mariane Iszley V. Samar
 - @annoyingltghost—https://github.com/annoyinglyghost
